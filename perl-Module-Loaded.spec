@@ -19,6 +19,7 @@ Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{modprefix}/%{module}-%{
 BuildRequires:	perl-devel >= 5.8.1
 %endif
 BuildArch:	noarch
+Buildroot:	%{_tmppath}/%{name}-root
 
 
 %description
