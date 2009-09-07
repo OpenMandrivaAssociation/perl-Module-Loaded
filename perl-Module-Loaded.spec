@@ -1,5 +1,5 @@
 %define	upstream_name	 Module-Loaded
-%define upstream_version 0.02
+%define upstream_version 0.06
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
