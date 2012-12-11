@@ -1,9 +1,9 @@
 %define	upstream_name	 Module-Loaded
 %define upstream_version 0.06
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
 Summary:	Mark modules as loaded or unloaded
 License:	Artistic/GPL
@@ -11,12 +11,8 @@ Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}/
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Module/%{upstream_name}-%{upstream_version}.tar.gz
 
-%if %{mdkversion} < 1010
-BuildRequires:	perl-devel >= 5.8.1
-%endif
+BuildRequires:	perl-devel
 BuildArch:	noarch
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}
-
 
 %description
 When testing applications, often you find yourself needing to provide
@@ -29,21 +25,46 @@ offers you a very simple way to mark modules as loaded and/or unloaded.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%__perl Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
-%__make test
+make test
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc README
 %{perl_vendorlib}/Module/*
 %{_mandir}/*/*
+
+
+%changelog
+* Mon Sep 07 2009 Jérôme Quelin <jquelin@mandriva.org> 0.60.0-1mdv2010.0
++ Revision: 432798
+- update to 0.06
+
+* Tue Aug 04 2009 Jérôme Quelin <jquelin@mandriva.org> 0.20.0-1mdv2010.0
++ Revision: 408965
+- rebuild using %%perl_convert_version
+
+* Tue Dec 16 2008 Guillaume Rousse <guillomovitch@mandriva.org> 0.02-1mdv2009.1
++ Revision: 314758
+- update to new version 0.02
+
+* Fri Dec 21 2007 Olivier Blin <oblin@mandriva.com> 0.01-1mdv2009.0
++ Revision: 136289
+- restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Fri Jun 22 2007 Buchan Milne <bgmilne@mandriva.org> 0.01-1mdv2008.0
++ Revision: 42863
+- Import perl-Module-Loaded
+
+
+
+* Thu Jun 21 2007 Buchan Milne <bgmilne@mandriva.org> 0.01-1mdv2007.1
+- initial package
