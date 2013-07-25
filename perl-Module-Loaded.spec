@@ -1,15 +1,15 @@
 %define	upstream_name	 Module-Loaded
-%define upstream_version 0.06
+%define upstream_version 0.08
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	2
+Version:	%perl_convert_version 0.08
+Release:	1
 
 Summary:	Mark modules as loaded or unloaded
 License:	Artistic/GPL
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}/
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Module/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	ftp://ftp.perl.org:21/pub/CPAN/modules/by-module/Module/Module-Loaded-0.08.tar.gz
 
 BuildRequires:	perl-devel
 BuildArch:	noarch
@@ -68,3 +68,4 @@ make test
 
 * Thu Jun 21 2007 Buchan Milne <bgmilne@mandriva.org> 0.01-1mdv2007.1
 - initial package
+
