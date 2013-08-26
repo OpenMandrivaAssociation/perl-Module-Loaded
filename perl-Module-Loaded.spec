@@ -1,15 +1,15 @@
 %define	upstream_name	 Module-Loaded
-%define upstream_version 0.06
+%define upstream_version 0.08
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	2
+Release:	1
 
 Summary:	Mark modules as loaded or unloaded
 License:	Artistic/GPL
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}/
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Module/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	ftp://ftp.perl.org:21/pub/CPAN/modules/by-module/Module/Module-Loaded-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildArch:	noarch
@@ -17,7 +17,7 @@ BuildArch:	noarch
 %description
 When testing applications, often you find yourself needing to provide
 functionality in your test environment that would usually be provided by
-external modules. Rather than munging the %INC by hand to mark these external
+external modules. Rather than munging the INC by hand to mark these external
 modules as loaded, so they are not attempted to be loaded by perl, this module
 offers you a very simple way to mark modules as loaded and/or unloaded.
 
@@ -68,3 +68,4 @@ make test
 
 * Thu Jun 21 2007 Buchan Milne <bgmilne@mandriva.org> 0.01-1mdv2007.1
 - initial package
+
